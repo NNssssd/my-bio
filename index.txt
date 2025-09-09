@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мой био</title>
+  <meta name="description" content="Одностраничный сайт-био: контакты, навыки, проекты, музыка." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark light; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); }
+    .chip { @apply inline-flex items-center px-3 py-1 rounded-full text-sm border; }
+  </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-30 border-b border-neutral-800/70 backdrop-blur bg-neutral-950/70">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="font-extrabold tracking-tight text-xl">Noddrr.bio</a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a class="hover:text-white/90 text-white/70" href="#about">Обо мне</a>
+        <a class="hover:text-white/90 text-white/70" href="#skills">Досуг</a>    
+        <a class="hover:text-white/90 text-white/70" href="#music">Музыка</a>
+        <a class="hover:text-white/90 text-white/70" href="#contacts">Контакты</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span id="clock" class="text-sm text-white/70 tabular-nums">--:--:--</span>
+        <button id="themeToggle" class="text-sm px-3 py-1 rounded-lg border border-white/10 hover:border-white/20">Тема</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative">
+    <div class="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_10%,rgba(59,130,246,0.15),transparent_60%)]"></div>
+    <div class="max-w-5xl mx-auto px-4 py-12 sm:py-16 relative">
+      <div class="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-6 items-center">
+        <img id="avatar" src="https://i.ibb.co/zhv2w2Pm/image.jpg" alt="Моё фото" class="size-[96px] sm:size-[120px] rounded-2xl object-cover border border-white/10" />
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Курбанов Надирбек</h1>
+            <span id="status" class="inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full border border-emerald-500/30 text-emerald-300/90">
+              <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span> онлайн
+            </span>
+          </div>
+          <p class="text-white/70 max-w-prose">Я ученик старшей школы который любит играть в игры и хочет научится кодить.</p>
+          <div class="flex flex-wrap gap-3 text-sm">
+            <span class="chip border-white/10 text-white/70">Возраст: <b class="ml-1 font-semibold">16</b></span>
+            <span class="chip border-white/10 text-white/70">Город: <b class="ml-1 font-semibold" id="city">Ургенч</b></span>
+            <span class="chip border-white/10 text-white/70">Часовой пояс: <b class="ml-1 font-semibold" id="tz">—</b></span>
+            <span class="chip border-white/10 text-white/70">Языки: <b class="ml-1 font-semibold">Русский,Узбекский,Чуть-чуть Инглиш</b></span>
+          </div>
+          <div class="flex flex-wrap gap-3" id="socials">
+            <a class="chip border-white/10 hover:border-white/20 text-white/80" href="https://t.me/Noddrr" target="_blank" rel="noopener">Telegram</a>
+            <a class="chip border-white/10 hover:border-white/20 text-white/80" href="https://discordapp.com/users/934365214802055199/" target="_blank" rel="noopener">Discord</a>
+            <a class="chip border-white/10 hover:border-white/20 text-white/80" href="https://vk.com/noddddr" target="_blank" rel="noopener">VK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-5xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 glass rounded-2xl p-6 border border-white/10">
+        <h2 class="text-xl font-bold mb-3">Основное</h2>
+        <dl class="grid sm:grid-cols-2 gap-y-2 text-white/80">
+          <div><dt class="text-white/60">Возраст</dt><dd>16 лет</dd></div>
+          <div><dt class="text-white/60">Родился в</dt><dd>Узбекистан</dd></div>
+          <div><dt class="text-white/60">Нахожусь в</dt><dd id="location">Узбекистан</dd></div>
+          <div><dt class="text-white/60">Часовой пояс</dt><dd id="tz2">—</dd></div>
+          <div class="sm:col-span-2"><dt class="text-white/60">Коротко</dt><dd>Хочу стать фронтет разрабом,что бы рубить бабки.На самом деле я считаю это интересным и хотел бы получать кайф от этого кайф</dd></div>
+        </dl>
+      </div>
+      <div class="glass rounded-2xl p-6 border border-white/10">
+        <h2 class="text-xl font-bold mb-3">Игры</h2>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="chip border-white/10">Dota 2</span>
+          <span class="chip border-white/10">CS 2</span>
+          <span class="chip border-white/10">Minecraft</span>
+          <span class="chip border-white/10">PEAK</span>
+          <span class="chip border-white/10">Roblox</span>
+          <span class="chip border-white/10">Clash Royale</span>
+          <span class="chip border-white/10">Chess</span>
+          <span class="chip border-white/10">YouTube</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills / Bars -->
+  <section id="skills" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-xl font-bold mb-4">Распределение времени</h2>
+    <div class="space-y-4">
+      <!-- Skill item template -->
+      <div class="space-y-1">
+        <div class="flex justify-between text-sm"><span>Школа</span><span>65%</span></div>
+        <div class="h-2.5 rounded-full bg-white/10 overflow-hidden">
+          <div class="h-full bg-white/80" style="width:65%"></div>
+        </div>
+        <p class="text-xs text-white/60">ну это база как по мне</p>
+      </div>
+      <div class="space-y-1">
+        <div class="flex justify-between text-sm"><span>Спорт</span><span>15%</span></div>
+        <div class="h-2.5 rounded-full bg-white/10 overflow-hidden">
+          <div class="h-full bg-white/80" style="width:15%"></div>
+        </div>
+        <p class="text-xs text-white/60">ну максимум 3 часа в день</p>
+      </div>
+      <div class="space-y-1">
+        <div class="flex justify-between text-sm"><span>Еда</span><span>10%</span></div>
+        <div class="h-2.5 rounded-full bg-white/10 overflow-hidden">
+          <div class="h-full bg-white/80" style="width:10%"></div>
+        </div>
+        <p class="text-xs text-white/60">Еда</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Music -->
+  <section id="music" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-xl font-bold mb-4">Музыка</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-5 border border-white/10">
+        <h3 class="font-semibold mb-2">Любимые исполнители</h3>
+        <ul class="list-disc list-inside text-white/80 text-sm space-y-1">
+          <li>Макан</li>
+          <li>Макан</li>
+          <li>Макан</li>
+        </ul>
+      </div>
+      <div class="glass rounded-2xl p-5 border border-white/10">
+        <h3 class="font-semibold mb-2">Сейчас слушаю</h3>
+        <p class="text-white/70 text-sm">Не слушаю музыку</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="max-w-5xl mx-auto px-4 py-12">
+    <div class="glass rounded-2xl p-6 border border-white/10">
+      <h2 class="text-xl font-bold mb-3">Контакты</h2>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div>
+          <p class="text-white/70">Открыт к предложениям и сотрудничеству. Для быстрых вопросов — Telegram.</p>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-white/70">Email</span>
+            <a href="mailto:you@example.com" class="font-medium">нету)</a>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-white/70">Telegram</span>
+            <a href="https://t.me/Noddrr" target="_blank" rel="noopener" class="font-medium">@Noddrr</a>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-white/70">Discord</span>
+            <a href="https://discordapp.com/users/934365214802055199/" target="_blank" rel="noopener" class="font-medium">#mikki9681</a>
+          </div>
+ 
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-white/60 flex flex-wrap items-center justify-between gap-2">
+      <span>© <span id="year"></span> Моё био</span>
+      <a href="#top" class="hover:text-white/80">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Live clock + timezone
+    const clockEl = document.getElementById('clock');
+    const tzEl = document.getElementById('tz');
+    const tz2El = document.getElementById('tz2');
+    const yearEl = document.getElementById('year');
+    const locEl = document.getElementById('location');
+    const cityEl = document.getElementById('city');
+
+    function updateClock() {
+      const now = new Date();
+      const fmt = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      clockEl.textContent = fmt.format(now);
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    tzEl.textContent = tz || '—';
+    if (tz2El) tz2El.textContent = tz || '—';
+
+    yearEl.textContent = new Date().getFullYear();
+
+    // Best‑effort geolocation (privacy‑friendly)
+    try {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(() => {
+          // We don't reverse‑geocode to avoid external calls; show a generic text.
+          locEl.textContent = 'Определено по устройству';
+          cityEl.textContent = 'Ваш город';
+        }, () => {
+          locEl.textContent = '—';
+          cityEl.textContent = '—';
+        }, { maximumAge: 600000, timeout: 3000 });
+      } else {
+        locEl.textContent = '—';
+        cityEl.textContent = '—';
+      }
+    } catch (e) { /* noop */ }
+
+    // Theme toggle (dark <-> "dim")
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('invert');
+    });
+  </script>
+</body>
+</html>
